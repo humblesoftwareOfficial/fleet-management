@@ -71,6 +71,61 @@ export const Button = styled("div")`
   cursor: hover;
   &:hover {
     background-color: ${(props) => props.borderColor || "#FFF"};
-    color:  ${(props) => props.borderColor ? "#FFF" : "#001F3F"};
+    color: ${(props) => (props.borderColor ? "#FFF" : "#001F3F")};
   }
+`;
+
+export const MenuMobileContainer = styled("div")`
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(255, 255, 255);
+  overflow-x: hidden;
+  transition: 0.5s;
+`;
+
+export const MenuMobileContent = styled("div")`
+  position: relative;
+  top: 10%;
+  width: 100%;
+  text-align: center;
+  margin: 20px 5px 0px 5px;
+`;
+
+export const CloseMenuMobile = styled("div")`
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+`;
+
+export const MenuItemContainer = styled("div")`
+  display: flex;
+  flex-flow: wrap;
+`;
+
+export const MenuItem = styled("div")`
+  width: 45%;
+  padding: 1.5%;
+`;
+export const Item = styled("div")`
+  width: 100%;
+  border: 1px solid #99A5B1;
+  background-color: ${(props) => props.color};
+  border-radius: 14px;
+  height: 150px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #001F3F;
+  border: ${(props) => (props["aria-selected"] ? "2px solid #399ebf" : "")};
+  &:hover {
+    box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%);
+  }
+`;
+
+export const IconItemMenu = styled("div")`
+margin: 10px;
 `;

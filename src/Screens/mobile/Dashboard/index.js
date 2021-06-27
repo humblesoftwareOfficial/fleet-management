@@ -11,7 +11,7 @@ export default function DashBoard() {
   return (
     <ContainerSection>
       <MainDashboardMobile>
-        <HeaderSection leftTitle="Home" />
+        <HeaderSection leftTitle="Home" isMobile/>
         <RecapCards />
         <EvolutionChartMobile />
         <DayLoactionMobile />
