@@ -9,6 +9,7 @@ export default function Reservation({ ...props }) {
     <ContainerSection>
       <MainDashboard>
         <HeaderSection leftTitle="Réservation" />
+        <h1>Location de véhicules</h1>
         <FormReservation/>
       </MainDashboard>
     </ContainerSection>

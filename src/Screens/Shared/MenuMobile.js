@@ -60,7 +60,7 @@ export default function MenuMobile({ open, onClose }) {
               Parc automobile
             </Item>
           </MenuItem>
-          <MenuItem>
+          <MenuItem onClick={() => onNavigate("reservation")}>
             <Item>
               {" "}
               <IconItemMenu>
