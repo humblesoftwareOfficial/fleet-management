@@ -1,0 +1,20 @@
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[build]
+  command = "CI=false && yarn build"
+  publish="build"
+
+[context.develop.environment]
+  REACT_APP_STAGE = "development"
+
+[context.deploy-preview.environment]
+  REACT_APP_STAGE = "development"
+
+[context.branch-deploy]
+  REACT_APP_STAGE = "development"
+
+[context.master.environment]
+  REACT_APP_STAGE = "production"
