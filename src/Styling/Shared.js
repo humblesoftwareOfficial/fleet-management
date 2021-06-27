@@ -68,7 +68,7 @@ export const Button = styled("div")`
   font-size: 14px;
   margin: 10px 5px;
   border-radius: 7px;
-  cursor: hover;
+  cursor: pointer;
   &:hover {
     background-color: ${(props) => props.borderColor || "#FFF"};
     color: ${(props) => (props.borderColor ? "#FFF" : "#001F3F")};
