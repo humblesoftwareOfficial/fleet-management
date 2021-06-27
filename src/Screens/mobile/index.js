@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { Router } from "@reach/router";
+import { MobileHomeDashboard } from '../../HOC/UseWithMobile';
 
 export default function Mobile({...props}) {
     return (
-        <div>
-            MOBILE
-        </div>
+        <Router>
+            <MobileHomeDashboard path="/" {...props}/>
+            <MobileHomeDashboard path="/dashboard" {...props}/>
+        </Router>
     )
 }

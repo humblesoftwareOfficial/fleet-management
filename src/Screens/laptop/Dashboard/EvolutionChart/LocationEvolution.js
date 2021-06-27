@@ -35,11 +35,11 @@ const options = {
   }
 };
 
-export default function LocationEvolution() {
+export default function LocationEvolution({isMobile = false}) {
   return (
     <>
       <div className="header">
-        <h1 className="title">Locations de la semaine</h1>
+      {isMobile ? <h3 className="title">Locations de la semaine</h3> : <h1 className="title">Locations de la semaine</h1>}
       </div>
       <Line data={data} options={options}/>
     </>

@@ -5,6 +5,11 @@ export const MainDashboard = styled("div")`
   height: 90%;
 `;
 
+export const MainDashboardMobile = styled("div")`
+  padding: 5px;
+  height: 90%;
+`;
+
 export const RecapContainer = styled("div")`
   display: flex;
   flex-flow: wrap;
@@ -19,6 +24,11 @@ export const CardRecap = styled("div")`
   @media (max-width: 550px) {
     min-width: 99%;
   }
+`;
+
+export const CardRecapMobile = styled("div")`
+  width: 47%;
+  padding: 1.5%;
 `;
 
 export const BodyCard = styled("div")`
@@ -48,6 +58,16 @@ export const ContentCard = styled("div")`
   display: block;
   font-family: Goudy Old Style;
   font-size: 56px;
+  color: #f2f2f2;
+`;
+
+export const ContentCardMobile = styled("div")`
+  height: 70%;
+  text-align: center;
+  align-items: center;
+  display: block;
+  font-family: Goudy Old Style;
+  font-size: 46px;
   color: #f2f2f2;
 `;
 

@@ -10,6 +10,15 @@ export const ContainerDayLocation = styled("div")`
   flex-flow: wrap;
 `;
 
+export const ContainerDayLocationMobile = styled("div")`
+  background-color: white;
+  border-radius: 7px;
+  border: 1px solid #e9e3e9;
+  padding: 1.75%;
+  display: flex;
+  flex-flow: wrap;
+`;
+
 export const TitleDayLocation = styled("div")`
   width: 100%;
   text-align: center;
@@ -26,7 +35,26 @@ export const CardRecapLocation = styled("div")`
   }
 `;
 
+export const CardRecapLocationMobile = styled("div")`
+  width: 97%;
+  padding: 1.5%;
+  margin-bottom: 12px;
+`;
+
 export const BodyCardRecapLocation = styled("div")`
+  width: 100%;
+  border: 1px solid rgb(240, 243, 244);
+  background-color: #E9EAEA;
+  border-radius: 14px;
+  height: 200px;
+  cursor: pointer;
+  border: ${(props) => (props["aria-selected"] ? "2px solid #399ebf" : "")};
+  &:hover {
+    box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%);
+  }
+`;
+
+export const BodyCardRecapLocationMobile = styled("div")`
   width: 100%;
   border: 1px solid rgb(240, 243, 244);
   background-color: #E9EAEA;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {
-  BodyCardRecapLocation,
-  CardRecapLocation,
+  BodyCardRecapLocationMobile,
+  CardRecapLocationMobile,
   FooterCardRecapLocation,
   HeaderCardRecapLocation,
   IconCircle,
@@ -11,7 +11,8 @@ import {
 import { AiFillCar } from "react-icons/ai";
 import { BiUser } from "react-icons/bi";
 import { Button } from "../../../../Styling/Shared";
-export default function CardItemLocation({ location }) {
+
+export default function CardItemLocationMobile({ location }) {
   const [showVehicle, setShowVehicle] = useState(false);
   const [showClient, setShowClient] = useState(false);
 
@@ -47,8 +48,8 @@ export default function CardItemLocation({ location }) {
   };
 
   return (
-    <CardRecapLocation>
-      <BodyCardRecapLocation>
+    <CardRecapLocationMobile>
+      <BodyCardRecapLocationMobile>
         <HeaderCardRecapLocation
           onMouseEnter={() => onShowFullData("vehicle")}
           onMouseLeave={() => onHideFullData("vehicle")}
@@ -93,7 +94,7 @@ export default function CardItemLocation({ location }) {
             </>
           )}
         </FooterCardRecapLocation>
-      </BodyCardRecapLocation>
-    </CardRecapLocation>
+      </BodyCardRecapLocationMobile>
+    </CardRecapLocationMobile>
   );
 }

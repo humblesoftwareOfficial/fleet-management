@@ -49,11 +49,11 @@ const options = {
   },
 };
 
-export default function VehiculeType() {
+export default function VehiculeType({isMobile = false}) {
   return (
     <>
       <div className="header">
-        <h1 className="title">Type de véhicules</h1>
+      {isMobile ? <h3 className="title">Type de véhicules</h3> : <h1 className="title">Type de véhicules</h1>}
       </div>
       <Bar data={data} options={options} />
     </>

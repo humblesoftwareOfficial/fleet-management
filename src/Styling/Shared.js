@@ -64,13 +64,13 @@ export const UserCircle = styled("span")`
 
 export const Button = styled("div")`
   padding: 7px;
-  border: 1px solid #FFF;
+  border: 1px solid ${(props) => props.borderColor || "#FFF"};
   font-size: 14px;
   margin: 10px 5px;
   border-radius: 7px;
   cursor: hover;
   &:hover {
-    background-color: #fff;
-    color: #001F3F;
+    background-color: ${(props) => props.borderColor || "#FFF"};
+    color:  ${(props) => props.borderColor ? "#FFF" : "#001F3F"};
   }
 `;
