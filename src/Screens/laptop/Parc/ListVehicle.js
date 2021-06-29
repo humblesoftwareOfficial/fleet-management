@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   ContainerList,
   TitleList,
@@ -8,54 +8,35 @@ import {
   ColumnListData,
   ContainerColumnData
 } from "../../../Styling/Article";
+import { Input } from "../../../Styling/Reservation";
+import { DefaultButton, Header } from "../../../Styling/Shared";
+import Faker from "faker";
+import Modal from "../../Shared/Modal";
+import FormVehicle from "./FormVehicle";
 
-const vehicles = [
-  {
-    code: "1",
-    type: "4x4",
-    modele: "Toyota Rav 4",
-    marque: "Toyota",
-    km: "25",
-    plaque_imm: "DK-1254-AL",
-  },
-  {
-    code: "2",
-    type: "Berline",
-    modele: "BMW Série 3",
-    marque: "BMW",
-    km: "75",
-    plaque_imm: "M MG 4684",
-  },
-  {
-    code: "3",
-    type: "Caddy",
-    modele: "Caddy",
-    marque: "WolksWagen",
-    km: "100",
-    plaque_imm: "DK-4582-K",
-  },
-  {
-    code: "4",
-    type: "Merc",
-    modele: "Classe CLA",
-    marque: "Mercedes",
-    km: "250",
-    plaque_imm: "DK-251-ML",
-  },
-  {
-    code: "5",
-    type: "MayB",
-    modele: "M 57",
-    marque: "Maybach",
-    km: "12",
-    plaque_imm: "US 45785 MM",
+const generateFakeVehicle = () => {
+  let data = [];
+  for (let i = 0; i < 20; i++) {
+    data.push({
+      type: Faker.vehicle.type(),
+      modele: Faker.vehicle.model(),
+      marque: Faker.vehicle.manufacturer(),
+      plaque_imm: Faker.vehicle.vin(),
+      km: Faker.datatype.number()
+    });
   }
-]
+  return data;
+};
 
 export default function ListVehicle() {
 
+  const [openModal, setOpenModal] = useState(false)
+  const data = generateFakeVehicle();
+
+  const onClose = () => {setOpenModal(false)};
+
   const renderVehiclesData = () =>
-    vehicles.map((vehicle) => (
+    data.map((vehicle) => (
       <RowList>
         <ColumnListData backgroundColor="#C7D0DA">{vehicle.type}</ColumnListData>
         <ColumnListData backgroundColor="#C7D0DA">{vehicle.marque}</ColumnListData>
@@ -67,7 +48,10 @@ export default function ListVehicle() {
 
   return (
     <ContainerList>
-      <TitleList>Liste des véhicules</TitleList>
+      <Header>
+        <Input placeholder="Rechercher ..."/>
+        <DefaultButton borderColor="#001f3f" onClick={() => setOpenModal(true)}>Ajouter un véhicule</DefaultButton>
+      </Header>
       <HeaderList>
         <ColumnList>Type</ColumnList>
         <ColumnList>Marque</ColumnList>
@@ -78,6 +62,7 @@ export default function ListVehicle() {
       <ContainerColumnData>
         {renderVehiclesData()}
       </ContainerColumnData>
+      <Modal open={openModal} children={<FormVehicle/>} onClose={onClose}/>
     </ContainerList>
   );
 }

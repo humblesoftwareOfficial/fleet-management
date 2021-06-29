@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const ContainerForm = styled("div")`
   display: flex;
   flex-flow: wrap;
+  border-radius: 7px;
 `;
 export const Form = styled("div")`
 width: 100%;
@@ -24,7 +25,7 @@ export const Input = styled("input")`
   border-radius: 7px;
   width: ${(props) => props.isMobile ? "93%" : "43%"};
   padding: 1.5%;
-  height: ${(props) => props.isMobile ? "25px" : "5px"};
+  height: ${(props) => props.isMobile ? "25px" : "7px"};
   margin: 1%;
   font-family: Gadugi;
   color: #001f3f;

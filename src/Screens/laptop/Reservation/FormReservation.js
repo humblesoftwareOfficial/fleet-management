@@ -13,17 +13,17 @@ export default function FormReservation({isMobile = false}) {
     <ContainerForm>
       <Form>
         <GrouPInput>
-          <TitleGroupForm>Client</TitleGroupForm>
+          <TitleGroupForm>Infos. Client</TitleGroupForm>
           <Input placeholder="Nom"isMobile={isMobile} />
           <Input placeholder="Prénom" isMobile={isMobile} />
           <Input placeholder="Téléphone" isMobile={isMobile} />
           <Input placeholder="Adresse" isMobile={isMobile} />
-          <Input placeholder="Date de naissane" isMobile={isMobile} />
+          <Input placeholder="Date de naissance" isMobile={isMobile} />
           <Input placeholder="Numéro CNI / Passeport" isMobile={isMobile} />
           <Input placeholder="Numéro permis de conduire" isMobile={isMobile} />
         </GrouPInput>
         <GrouPInput>
-          <TitleGroupForm>Véhicule</TitleGroupForm>
+          <TitleGroupForm>Infos. véhicule</TitleGroupForm>
           <Input placeholder="Numéro Imm." isMobile={isMobile} />
           <Input placeholder="Type de véhicule"isMobile={isMobile} />
           <Input placeholder="Marque du véhicule" isMobile={isMobile} />
@@ -32,7 +32,7 @@ export default function FormReservation({isMobile = false}) {
           <Input placeholder="Carburant au départ" isMobile={isMobile} />
         </GrouPInput>
         <GrouPInput>
-          <TitleGroupForm>Contrat</TitleGroupForm>
+          <TitleGroupForm>Détails contrat</TitleGroupForm>
           <Input placeholder="Date de location" isMobile={isMobile} />
           <Input placeholder="Heure de location"isMobile={isMobile} />
           <Input placeholder="Durée prévue" isMobile={isMobile} />
