@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { AiFillCar } from "react-icons/ai";
+import { BiUser } from "react-icons/bi";
 import {
   BodyCardRecapLocation,
   CardRecapLocation,
@@ -8,17 +10,28 @@ import {
   UserDescription,
   VehicleDescription,
 } from "../../../../Styling/DayLocation";
-import { AiFillCar } from "react-icons/ai";
-import { BiUser } from "react-icons/bi";
+import { StatusReservation } from "../../../../Styling/Reservation";
 import { Button } from "../../../../Styling/Shared";
+
+const statusColor = {
+  end: "#D01A0B",
+  running: "#54B30D",
+  waiting_start: "#D0CA0B",
+};
+
+const statusText = {
+  end: "Terminé",
+  running: "En cours",
+  waiting_start: "En attente",
+};
+
 export default function CardItemLocation({ location }) {
   const [showVehicle, setShowVehicle] = useState(false);
   const [showClient, setShowClient] = useState(false);
 
-  console.log(location?.plage)
-
-  const fullData = {height: "100%"};
-  const hideData = {display: "none"}
+  console.log(location.status);
+  const fullData = { height: "100%" };
+  const hideData = { display: "none" };
 
   const onShowFullData = (part) => {
     switch (part) {
@@ -46,14 +59,20 @@ export default function CardItemLocation({ location }) {
     }
   };
 
+  const renderLocationStatus = () => (
+    <StatusReservation color={statusColor[location.status]}>
+      {statusText[location.status]}
+    </StatusReservation>
+  );
   return (
     <CardRecapLocation>
       <BodyCardRecapLocation>
         <HeaderCardRecapLocation
           onMouseEnter={() => onShowFullData("vehicle")}
           onMouseLeave={() => onHideFullData("vehicle")}
-          style={showVehicle ? fullData : (showClient ? hideData : {})}
+          style={showVehicle ? fullData : showClient ? hideData : {}}
         >
+          {renderLocationStatus()}
           <IconCircle>
             <AiFillCar
               size={24}
@@ -68,16 +87,17 @@ export default function CardItemLocation({ location }) {
           </VehicleDescription>
           {showVehicle && (
             <>
-            <Button borderColor="#001f3f">Voir la réservation</Button>
-            <Button borderColor="#001f3f">Afficher le véhicule</Button>
+              <Button hoverColor="#001F3F">Voir la réservation</Button>
+              <Button hoverColor="#001F3F">Afficher le véhicule</Button>
             </>
           )}
         </HeaderCardRecapLocation>
         <FooterCardRecapLocation
           onMouseEnter={() => onShowFullData("client")}
           onMouseLeave={() => onHideFullData("client")}
-          style={showClient ? fullData : (showVehicle ? hideData : {})}
+          style={showClient ? fullData : showVehicle ? hideData : {}}
         >
+          {showClient && renderLocationStatus()}
           <IconCircle>
             <BiUser size={24} style={{ margin: "7px 0px" }} color="#001F3F" />
           </IconCircle>
@@ -88,8 +108,12 @@ export default function CardItemLocation({ location }) {
           </UserDescription>
           {showClient && (
             <>
-            <Button >Afficher le client</Button>
-            <Button>Voir toutes ses réservations</Button>
+              <Button color="#FFF" hoverColor="#001F3F">
+                Afficher le client
+              </Button>
+              <Button color="#FFF" hoverColor="#001F3F">
+                Voir toutes ses réservations
+              </Button>
             </>
           )}
         </FooterCardRecapLocation>

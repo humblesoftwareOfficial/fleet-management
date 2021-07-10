@@ -1,10 +1,10 @@
+import Faker from "faker";
 import React from "react";
 import {
   ContainerDayLocation,
   TitleDayLocation,
 } from "../../../../Styling/DayLocation";
 import CardItemLocation from "./CardItemLocation";
-import Faker from "faker";
 
 const generateFakeLocation = () => {
   let data = [];
@@ -23,9 +23,10 @@ const generateFakeLocation = () => {
         cni: "1757199203698",
       },
       plage: {
-          start: Faker.date.past(),
-          end: Faker.date.future()
-      }
+        start: Faker.date.past(),
+        end: Faker.date.future(),
+      },
+      status: Faker.random.objectElement(["running"]),
     });
   }
   return data;

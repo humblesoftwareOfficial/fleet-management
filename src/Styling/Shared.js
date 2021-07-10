@@ -70,10 +70,10 @@ export const Button = styled("div")`
   margin: 10px 5px;
   border-radius: 7px;
   cursor: pointer;
-  color: ${(props) => props.borderColor || "#001F3F"};
+  color: ${(props) => props.color || props.borderColor || "#001F3F"};
   &:hover {
     background-color: ${(props) => props.borderColor || "#FFF"};
-    color: #fff;
+    color: ${(props) => props.hoverColor || props.color || "#FFF"};
   }
 `;
 

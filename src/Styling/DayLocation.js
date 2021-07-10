@@ -10,6 +10,13 @@ export const ContainerDayLocation = styled("div")`
   flex-flow: wrap;
 `;
 
+export const ContainerLocations = styled("div")`
+  margin: 1%;
+  display: flex;
+  flex-flow: wrap;
+  background-color: white;
+`;
+
 export const ContainerDayLocationMobile = styled("div")`
   background-color: white;
   border-radius: 7px;
@@ -44,7 +51,7 @@ export const CardRecapLocationMobile = styled("div")`
 export const BodyCardRecapLocation = styled("div")`
   width: 100%;
   border: 1px solid rgb(240, 243, 244);
-  background-color: #E9EAEA;
+  background-color: #e9eaea;
   border-radius: 14px;
   height: 200px;
   cursor: pointer;
@@ -57,7 +64,7 @@ export const BodyCardRecapLocation = styled("div")`
 export const BodyCardRecapLocationMobile = styled("div")`
   width: 100%;
   border: 1px solid rgb(240, 243, 244);
-  background-color: #E9EAEA;
+  background-color: #e9eaea;
   border-radius: 14px;
   height: 200px;
   cursor: pointer;
@@ -74,17 +81,19 @@ export const HeaderCardRecapLocation = styled("div")`
   justify-content: center;
   align-items: center;
   margin: 5px;
+  position: relative;
 `;
 
 export const FooterCardRecapLocation = styled("div")`
   height: 46%;
   text-align: center;
   align-items: center;
-  font-family: Gadugi;;
+  font-family: Gadugi;
   color: #f2f2f2;
   background-color: #001f3f;
   border-radius: 14px;
   padding: 2%;
+  position: relative;
 `;
 
 export const VehicleDescription = styled("div")`
