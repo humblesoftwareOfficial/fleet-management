@@ -1,8 +1,8 @@
 import React from "react";
-import CardItem from "./CardItem";
-import { RecapContainer } from "../../../Styling/Dashboard";
 import { AiFillCar, AiFillDashboard } from "react-icons/ai";
 import { BsPersonLinesFill, BsTools } from "react-icons/bs";
+import { RecapContainer } from "../../../Styling/Dashboard";
+import CardItem from "./CardItem";
 
 export default function RecapCards({ ...props }) {
   return (

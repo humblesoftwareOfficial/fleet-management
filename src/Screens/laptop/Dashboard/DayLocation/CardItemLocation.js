@@ -88,7 +88,7 @@ export default function CardItemLocation({ location }) {
           </UserDescription>
           {showClient && (
             <>
-            <Button>Afficher le client</Button>
+            <Button >Afficher le client</Button>
             <Button>Voir toutes ses réservations</Button>
             </>
           )}

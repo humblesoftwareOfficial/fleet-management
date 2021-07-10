@@ -41,7 +41,6 @@ export const ContainerSection = styled("div")`
 `;
 
 export const Header = styled("div")`
-  border-radius: 14px;
   padding: 10px;
   justify-content: space-between;
   display: flex;
@@ -60,6 +59,8 @@ export const UserCircle = styled("span")`
   position: relative;
   background-color: #001f3f;
   display: inline-block;
+  box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%);
+  border: 1px solid #001f3f;
 `;
 
 export const Button = styled("div")`
@@ -72,7 +73,7 @@ export const Button = styled("div")`
   color: ${(props) => props.borderColor || "#001F3F"};
   &:hover {
     background-color: ${(props) => props.borderColor || "#FFF"};
-    color: #FFF;
+    color: #fff;
   }
 `;
 
@@ -109,8 +110,8 @@ export const MenuMobileContent = styled("div")`
 
 export const CloseMenuMobile = styled("div")`
   position: absolute;
-  top: 20px;
-  right: 45px;
+  top: 2px;
+  right: 8px;
   font-size: 60px;
 `;
 

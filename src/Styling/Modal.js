@@ -14,7 +14,7 @@ export const MainModal = styled("div")`
 `;
 
 export const ModalContent = styled("div")`
-  background-color: #fefefe;
+  background-color: #f2f2f2;
   margin: auto;
   padding: 5px;
   border: 1px solid #888;
@@ -41,13 +41,13 @@ export const TtileModal = styled("div")`
   font-weight: bold;
   width: 80%;
   margin: 10px;
-  color: #001F3F;
+  color: #001f3f;
 `;
 
 export const FooterModal = styled("div")`
   display: flex;
   flex-flow: wrap;
   width: 100%;
-  justify-content: flex-end;
+  justify-content: center;
   margin: 0px 10px 0px 0px;
 `;

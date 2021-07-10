@@ -10,7 +10,6 @@ export const LeftDashBoard = styled("div")`
   width: 260px;
   height: 100%;
   background-color: #001f3f;
-  box-shadow: 20px 20px 60px #eaeaea, -20px -20px 60px #eaeaea;
   position: fixed;
 `;
 

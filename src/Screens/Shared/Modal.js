@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { BsXSquareFill } from "react-icons/bs";
 import {
   CloseModal,
   FooterModal,
@@ -8,7 +9,6 @@ import {
   TtileModal,
 } from "../../Styling/Modal";
 import { Button, DefaultButton, Divider } from "../../Styling/Shared";
-import { BsXSquareFill } from "react-icons/bs";
 
 export default function Modal({ children, open, title = "Modal", onClose }) {
   const [style, setStyle] = useState({ width: "0%" });
@@ -23,16 +23,16 @@ export default function Modal({ children, open, title = "Modal", onClose }) {
         <HeaderModal>
           <TtileModal>{title}</TtileModal>
           <CloseModal onClick={onClose}>
-            <Button borderColor="#E62B6F">
-              <BsXSquareFill size={14}/>
+            <Button>
+              <BsXSquareFill size={14} color="#E62B6F" />
             </Button>
           </CloseModal>
         </HeaderModal>
+        <Divider />
         {children}
+        <Divider />
         <FooterModal>
-          <DefaultButton>
-            Enregistrer
-          </DefaultButton>
+          <DefaultButton>Enregistrer</DefaultButton>
           <Button borderColor="#E62B6F" onClick={onClose}>
             Annuler
           </Button>
