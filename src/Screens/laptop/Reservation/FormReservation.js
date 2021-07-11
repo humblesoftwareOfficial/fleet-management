@@ -1,65 +1,50 @@
-import React from "react";
-import {
-  ContainerForm,
-  Form,
-  GrouPInput,
-  Input,
-  TitleGroupForm,
-} from "../../../Styling/Reservation";
-import { Button } from "../../../Styling/Shared";
+import React, { useMemo, useState } from "react";
+import { ContainerForm, Form } from "../../../Styling/Reservation";
+import Stepper from "../../Shared/Stepper";
+import Chauffeur from "./StepsFormReservation/Chauffeur";
+import Clauses from "./StepsFormReservation/Clauses";
+import Client from "./StepsFormReservation/Client";
+import Contrat from "./StepsFormReservation/Contrat";
+import Vehicule from "./StepsFormReservation/Vehicule";
 
-export default function FormReservation({isMobile = false}) {
-  return (
+export default function FormReservation({ isMobile = false, onCancel }) {
+  const [activeStep, setActiveStep] = useState(0);
+
+  const steps = ["Client", "Véhicule", "Contrat", "Chauffeur", "Clauses"];
+
+  const StepsForm = {
+    0: <Client />,
+    1: <Vehicule />,
+    2: <Contrat />,
+    3: <Chauffeur />,
+    4: <Clauses />,
+  };
+  const renderStepForm = useMemo(() => StepsForm[activeStep], [activeStep]);
+
+  const renderForm = () => (
     <ContainerForm>
-      <Form>
-        <GrouPInput>
-          <TitleGroupForm>Infos. Client</TitleGroupForm>
-          <Input placeholder="Nom"isMobile={isMobile} />
-          <Input placeholder="Prénom" isMobile={isMobile} />
-          <Input placeholder="Téléphone" isMobile={isMobile} />
-          <Input placeholder="Adresse" isMobile={isMobile} />
-          <Input placeholder="Date de naissance" isMobile={isMobile} />
-          <Input placeholder="Numéro CNI / Passeport" isMobile={isMobile} />
-          <Input placeholder="Numéro permis de conduire" isMobile={isMobile} />
-        </GrouPInput>
-        <GrouPInput>
-          <TitleGroupForm>Infos. véhicule</TitleGroupForm>
-          <Input placeholder="Numéro Imm." isMobile={isMobile} />
-          <Input placeholder="Type de véhicule"isMobile={isMobile} />
-          <Input placeholder="Marque du véhicule" isMobile={isMobile} />
-          <Input placeholder="Modéle du véhicule" isMobile={isMobile} />
-          <Input placeholder="Km au départ" isMobile={isMobile} />
-          <Input placeholder="Carburant au départ" isMobile={isMobile} />
-        </GrouPInput>
-        <GrouPInput>
-          <TitleGroupForm>Détails contrat</TitleGroupForm>
-          <Input placeholder="Date de location" isMobile={isMobile} />
-          <Input placeholder="Heure de location"isMobile={isMobile} />
-          <Input placeholder="Durée prévue" isMobile={isMobile} />
-          <Input placeholder="Caution versée" isMobile={isMobile} />
-          <Input placeholder="Prix à la journée" isMobile={isMobile} />
-          <Input placeholder="Date de retour" isMobile={isMobile} />
-          <Input placeholder="Heure de retour" isMobile={isMobile} />
-        </GrouPInput>
-        <GrouPInput>
-          <TitleGroupForm>Option avec chauffeur</TitleGroupForm>
-          <Input placeholder="Nom du chauffeur" isMobile={isMobile} />
-          <Input placeholder="Prénom du chauffeur"isMobile={isMobile} />
-          <Input placeholder="Numéro permis de conduire" isMobile={isMobile} />
-          <Input placeholder="Délivré le" isMobile={isMobile} />
-          <Input placeholder="Cout / jour" isMobile={isMobile} />
-          <Input placeholder="Téléphone du chauffeur" isMobile={isMobile} />
-        </GrouPInput>
-        <GrouPInput>
-          <TitleGroupForm>Clauses particulières</TitleGroupForm>
-          <Input placeholder="Supplément par heure de retard de restitution" isMobile={isMobile} />
-          <Input placeholder="Destination"isMobile={isMobile} />
-          <Input placeholder="Total à payer" isMobile={isMobile} />
-        </GrouPInput>
-      </Form>
-      <Button borderColor="#001f3f">Enregistrer</Button>
-      <Button borderColor="green">Enregistrer et imprimer</Button>
-      <Button borderColor="#E62B6F" style={{ color: "#E62B6F" }}>Annuler</Button>
+      <Form>{renderStepForm}</Form>
     </ContainerForm>
+  );
+  const onNext = () => {
+    if (activeStep !== steps.length) {
+      setActiveStep(activeStep + 1);
+    }
+  };
+  const onBack = () => {
+    if (activeStep) {
+      setActiveStep(activeStep - 1);
+    } else {
+      onCancel();
+    }
+  };
+  return (
+    <Stepper
+      steps={steps}
+      activeStep={activeStep}
+      stepComponent={renderForm()}
+      onNext={onNext}
+      onBack={onBack}
+    />
   );
 }

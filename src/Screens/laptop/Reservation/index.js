@@ -2,11 +2,16 @@ import Faker from "faker";
 import React, { useEffect, useState } from "react";
 import { MainDashboard } from "../../../Styling/Dashboard";
 import { ContainerLocations } from "../../../Styling/DayLocation";
-import { ContainerSection } from "../../../Styling/Shared";
+import {
+  ContainerSection,
+  DefaultButton,
+  Header,
+} from "../../../Styling/Shared";
 import HeaderSection from "../../Shared/Header";
 import CardItemLocation from "../Dashboard/DayLocation/CardItemLocation";
 import FiltreReservation from "./FiltreReservation";
 import FormReservation from "./FormReservation";
+
 const generateFakeLocation = () => {
   let data = [];
   for (let i = 0; i < 20; i++) {
@@ -47,9 +52,18 @@ export default function Reservation({ ...props }) {
       <MainDashboard>
         <HeaderSection leftTitle="Réservation" />
         {showForm ? (
-          <FormReservation />
+          <FormReservation onCancel={() => setShorm(false)} />
         ) : (
           <>
+            <Header>
+              <h3>Filtres</h3>
+              <DefaultButton
+                borderColor="#001f3f"
+                onClick={() => setShorm(true)}
+              >
+                Nouvelle réservation
+              </DefaultButton>
+            </Header>
             <FiltreReservation setShorm={setShorm} />
             <ContainerLocations>{renderLocations()}</ContainerLocations>
           </>

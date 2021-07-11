@@ -15,6 +15,8 @@ export const ContainerLocations = styled("div")`
   display: flex;
   flex-flow: wrap;
   background-color: white;
+  border: 1px solid #a6a5a8;
+  border-radius: 5px;
 `;
 
 export const ContainerDayLocationMobile = styled("div")`
