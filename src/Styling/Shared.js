@@ -8,8 +8,8 @@ export const Logo = styled("div")`
   text-align: center;
   padding: 5%;
   border-radius: 14px;
-  background: #001f3f;
-  color: white;
+  background: white;
+  color: #001f3f;
 
   cursor: pointer;
   &:hover {
@@ -98,6 +98,8 @@ export const MenuMobileContainer = styled("div")`
   background-color: rgba(255, 255, 255);
   overflow-x: hidden;
   transition: 0.5s;
+  background-image: url("https://wallpapercave.com/wp/wp3478702.jpg");
+  background-size: cover;
 `;
 
 export const MenuMobileContent = styled("div")`
@@ -126,13 +128,13 @@ export const MenuItem = styled("div")`
 `;
 export const Item = styled("div")`
   width: 100%;
-  border: 1px solid #99a5b1;
+  border: 1px solid #fff;
   background-color: ${(props) => props.color};
   border-radius: 14px;
   height: 150px;
   cursor: pointer;
   font-weight: bold;
-  color: #001f3f;
+  color: #fff;
   border: ${(props) => (props["aria-selected"] ? "2px solid #399ebf" : "")};
   &:hover {
     box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%);

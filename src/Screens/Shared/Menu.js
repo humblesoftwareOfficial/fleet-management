@@ -62,6 +62,7 @@ export default function Menu({ ...props }) {
         </CotainerIcon>
         <CotainerLabel>Paramètres & Config.</CotainerLabel>
       </MenuItem>
+      <Divider />
     </ContainerMenu>
   );
 }

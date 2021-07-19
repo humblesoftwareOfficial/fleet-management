@@ -1,12 +1,14 @@
 import Faker from "faker";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ContainerList } from "../../../Styling/Article";
 import { Input } from "../../../Styling/Reservation";
 import { DefaultButton, Header } from "../../../Styling/Shared";
 import { ContainerVehicleList } from "../../../Styling/Vehicle";
 import CardVehicle from "../../mobile/Parc/CardVehicle";
+import Dialog from "../../Shared/Dialog";
 import Modal from "../../Shared/Modal";
 import FormVehicle from "./FormVehicle";
+
 const generateFakeVehicle = () => {
   let data = [];
   for (let i = 0; i < 20; i++) {
@@ -23,8 +25,13 @@ const generateFakeVehicle = () => {
 
 export default function ListVehicle() {
   const [openModal, setOpenModal] = useState(false);
+  const [openDetails, setOpenDetails] = useState(false);
+  const [vehicleDetails, setVehicleDetails] = useState(null);
   const data = generateFakeVehicle();
 
+  useEffect(() => {
+    vehicleDetails ? setOpenDetails(true) : setOpenDetails(false);
+  }, [vehicleDetails]);
   const onClose = () => {
     setOpenModal(false);
   };
@@ -40,8 +47,18 @@ export default function ListVehicle() {
   //     </RowList>
   //   ));
 
+  const onShowVehicle = (vehicle) => {
+    setVehicleDetails(vehicle);
+  };
+
   const renderVehicleList = () =>
-    data.map((vehicle) => <CardVehicle vehicle={vehicle} isWeb />);
+    data.map((vehicle) => (
+      <CardVehicle
+        vehicle={vehicle}
+        isWeb
+        onShowVehicle={() => onShowVehicle(vehicle)}
+      />
+    ));
 
   return (
     <ContainerList>
@@ -67,6 +84,7 @@ export default function ListVehicle() {
         onClose={onClose}
         title="Nouveau véhicule"
       />
+      <Dialog open={openDetails} />
     </ContainerList>
   );
 }
