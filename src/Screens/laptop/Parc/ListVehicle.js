@@ -7,6 +7,7 @@ import { ContainerVehicleList } from "../../../Styling/Vehicle";
 import CardVehicle from "../../mobile/Parc/CardVehicle";
 import Dialog from "../../Shared/Dialog";
 import Modal from "../../Shared/Modal";
+import DetailsVehicle from "./Details/Vehicle";
 import FormVehicle from "./FormVehicle";
 
 const generateFakeVehicle = () => {
@@ -18,6 +19,13 @@ const generateFakeVehicle = () => {
       marque: Faker.vehicle.manufacturer(),
       plaque_imm: Faker.vehicle.vin(),
       km: Faker.datatype.number(),
+      carburant: Faker.datatype.number(),
+      origine: Faker.address.country(),
+      prix: Faker.random.objectElement([
+        "7 500 000",
+        "9 852 000",
+        "15 708 520",
+      ]),
     });
   }
   return data;
@@ -84,7 +92,11 @@ export default function ListVehicle() {
         onClose={onClose}
         title="Nouveau véhicule"
       />
-      <Dialog open={openDetails} />
+      <Dialog
+        open={openDetails}
+        onClose={() => setVehicleDetails(null)}
+        children={<DetailsVehicle vehicle={vehicleDetails} />}
+      />
     </ContainerList>
   );
 }

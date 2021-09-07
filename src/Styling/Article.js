@@ -14,7 +14,7 @@ export const TitleList = styled("div")`
 `;
 
 export const HeaderList = styled("div")`
-  background-color: #9ABCE3;
+  background-color: #9abce3;
   border-radius: 14px;
   margin: 20px 0px;
   height: 50px;
@@ -24,7 +24,7 @@ export const HeaderList = styled("div")`
 `;
 
 export const RowList = styled("div")`
-  background-color: #CDD3DA;
+  background-color: #cdd3da;
   border-radius: 14px;
   margin: 20px 0px;
   height: 50px;
@@ -32,13 +32,13 @@ export const RowList = styled("div")`
   justify-content: center;
   display: flex;
   &:hover {
-    background-color: #FFF;
+    background-color: #fff;
     cursor: pointer;
   }
 `;
 
 export const ColumnList = styled("div")`
-  background-color: #8DB6E5;
+  background-color: #8db6e5;
   border-radius: 7px;
   padding: 2px;
   margin: 0px 10px;
@@ -49,12 +49,10 @@ export const ColumnList = styled("div")`
   color: #4b0a50;
 `;
 
-export const ContainerColumnData = styled("div")`
-  
-`;
+export const ContainerColumnData = styled("div")``;
 
 export const ColumnListData = styled("div")`
-  background-color: #C7D0DA;
+  background-color: #c7d0da;
   border-radius: 7px;
   padding: 2px;
   margin: 0px 10px;
