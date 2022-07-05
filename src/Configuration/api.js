@@ -1,8 +1,8 @@
 import axios from "axios";
 
 let api = axios.create({
-  //baseURL: "https://dailyserviceapp.herokuapp.com/",
-  baseURL: "http://localhost:3000/",
+  baseURL: "https://dailyserviceapp.herokuapp.com/",
+  //baseURL: "http://localhost:3000/",
 });
 
 api.defaults.headers["secfetchmodel"] = "220992-1";
