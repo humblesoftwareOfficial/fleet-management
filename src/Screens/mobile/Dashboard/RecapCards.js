@@ -1,36 +1,36 @@
 import React from "react";
+
+import { APP_COLORS } from "../../../Styling/Colors";
 import { RecapContainer } from "../../../Styling/Dashboard";
 import CardItemMobile from "./CardItemMobile";
-import { AiFillCar, AiFillDashboard } from "react-icons/ai";
-import { BsPersonLinesFill, BsTools } from "react-icons/bs";
 
-export default function RecapCards() {
+export default function RecapCards({ stats = null }) {
   return (
     <RecapContainer>
       <CardItemMobile
-        color="#5898DF"
-        value={275}
-        label="Véhicules en parc"
-        icon={<AiFillCar size={24} style={{ margin: "7px 0px" }} />}
+        color="#F5F4F4"
+        value={stats?.voters_registered || 0}
+        label="Inscrits"
+        icon={null}
+        textColor={APP_COLORS.BLACK_COLOR.color}
       />
       <CardItemMobile
-        color="#CEE580"
-        value={104}
-        label="Location en cours"
-        icon={<BsPersonLinesFill size={24} style={{ margin: "7px 0px" }} />}
+        color={APP_COLORS.GREEN_COLOR.color}
+        value={stats?.voters_count || 0}
+        label="Votants"
+        icon={null}
       />
       <CardItemMobile
-        color="#E57CA4"
-        value={50}
-        label="En réparation"
-        icon={<BsTools size={24} style={{ margin: "7px 0px" }} />}
+        color={APP_COLORS.YELLOW_COLOR.color}
+        value={stats?.voters_expressed || 0}
+        label="Exprimés"
+        icon={null}
       />
       <CardItemMobile
-        color="#E296E7"
-        value={"275 / 100"}
-        label="Réserves d'essence / Gasoil"
-        icon={<AiFillDashboard size={24} style={{ margin: "7px 0px" }} />}
-        isMultiple
+        color={APP_COLORS.RED_COLOR.color}
+        value={stats?.voters_not_expressed || 0}
+        label="B.Nuls"
+        icon={null}
       />
     </RecapContainer>
   );

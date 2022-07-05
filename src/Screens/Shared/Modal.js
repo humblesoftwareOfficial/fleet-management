@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { BsXSquareFill } from "react-icons/bs";
-import {
-  CloseModal,
-  FooterModal,
-  HeaderModal,
-  MainModal,
-  ModalContent,
-  TtileModal,
-} from "../../Styling/Modal";
-import { Button, DefaultButton, Divider } from "../../Styling/Shared";
 
-export default function Modal({ children, open, title = "Modal", onClose }) {
+import { CloseModal, HeaderModal, MainModal, ModalContent, TtileModal } from "../../Styling/Modal";
+import { Button, Divider } from "../../Styling/Shared";
+
+export default function Modal({
+  children,
+  open,
+  title = "Modal",
+  onClose,
+  confirmText = "",
+  color,
+}) {
   const [style, setStyle] = useState({ width: "0%" });
 
   useEffect(() => {
@@ -28,15 +29,8 @@ export default function Modal({ children, open, title = "Modal", onClose }) {
             </Button>
           </CloseModal>
         </HeaderModal>
-        <Divider />
+        <Divider color={color} />
         {children}
-        <Divider />
-        <FooterModal>
-          <DefaultButton>Enregistrer</DefaultButton>
-          <Button borderColor="#E62B6F" onClick={onClose}>
-            Annuler
-          </Button>
-        </FooterModal>
       </ModalContent>
     </MainModal>
   );

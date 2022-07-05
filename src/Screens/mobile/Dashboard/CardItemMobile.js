@@ -1,13 +1,6 @@
 import React from "react";
-import {
-  BodyCard,
-  CardRecapMobile,
-  CircleCard,
-  ContentCardMobile,
-  HeaderCard,
-  SubTitleValue,
-  Value,
-} from "../../../Styling/Dashboard";
+
+import { BodyCard, CardRecapMobile, CircleCard, ContentCardMobile, HeaderCard, SubTitleValue, Value } from "../../../Styling/Dashboard";
 
 export default function CardItemMobile({
   label,
@@ -15,6 +8,7 @@ export default function CardItemMobile({
   value,
   color,
   isMultiple = false,
+  textColor = "#FFF"
 }) {
   const style = isMultiple ? { fontSize: "30px" } : {};
   return (
@@ -25,7 +19,7 @@ export default function CardItemMobile({
         </HeaderCard>
         <ContentCardMobile>
           <Value style={style}>{value}</Value>
-          <SubTitleValue>{label}</SubTitleValue>
+          <SubTitleValue textColor={textColor}>{label}</SubTitleValue>
         </ContentCardMobile>
       </BodyCard>
     </CardRecapMobile>

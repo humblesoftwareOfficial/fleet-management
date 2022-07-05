@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const MainModal = styled("div")`
   position: fixed;
   z-index: 1;
-  padding-top: 100px;
+  padding-top: 50px;
   left: 0;
   top: 0;
   width: 100%;
@@ -14,13 +14,13 @@ export const MainModal = styled("div")`
 `;
 
 export const ModalContent = styled("div")`
-  background-color: #f2f2f2;
+  background-color: #FFF;
   margin: auto;
   padding: 5px;
   border: 1px solid #888;
-  width: 65%;
-  min-height: 250px;
-  border-radius: 7px;
+  width: 75%;
+  
+  border-radius: 1px;
 `;
 
 export const CloseModal = styled("div")`

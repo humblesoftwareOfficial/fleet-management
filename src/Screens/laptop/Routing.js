@@ -1,17 +1,18 @@
-import React from 'react';
 import { Router } from "@reach/router";
-import DashBoard from './Dashboard';
-import Parc from './Parc';
-import Reservation from "./Reservation";
+import React from "react";
 
-export default function Home({...props}) {
-    return (
-        <Router>
-            <DashBoard path="/"/>
-            <DashBoard path="/home"/>
-            <DashBoard path="/dashboard"/>
-            <Parc path="/parc"/>
-            <Reservation path="/reservation"/>
-        </Router>
-    )
+import DashBoard from "./Dashboard";
+import Filters from "./Filters";
+import Results from "./Results";
+
+export default function Home({ ...props }) {
+  return (
+    <Router>
+      <DashBoard path="/" />
+      <DashBoard path="/home" />
+      <DashBoard path="/dashboard" />
+      <Results path="/results" />
+      <Filters path="/filters" />
+    </Router>
+  );
 }

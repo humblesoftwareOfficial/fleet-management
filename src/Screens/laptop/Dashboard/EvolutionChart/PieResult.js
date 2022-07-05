@@ -1,34 +1,19 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import { Bar } from "react-chartjs-2";
-import { APP_COLORS } from "../../../../Styling/Colors";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Pie } from "react-chartjs-2";
 import Spinner from "../../../Shared/Spinner";
 
+ChartJS.register(ArcElement, Tooltip, Legend);
 
-export default function EvolutionDepenses({ isMobile = false, datasets = [], customTitle = "", legend = "" }) {
+export default function PieResults({
+  isMobile = false,
+  datasets = [],
+  customTitle = "",
+  legend = "",
+}) {
   const [formatedData, setFormatedData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-
-  const options = {
-    scales: {
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: true,
-          },
-        },
-      ],
-    },
-    plugins: {
-      legend: {
-        display: false,
-      },
-      title: {
-        display: true,
-        text: customTitle,
-      },
-    },
-  };
 
   useEffect(() => {
     formatLabels();
@@ -43,28 +28,20 @@ export default function EvolutionDepenses({ isMobile = false, datasets = [], cus
   const formatLabels = () => {
     const usedLabels = [];
     const count = [];
+    const colors = [];
     for (let i = 0; i < datasets?.length; i++) {
       usedLabels.push(datasets[i]?.political_alliance?.name || "");
       count.push(datasets[i]?.count || 0);
+      colors.push(datasets[i]?.political_alliance?.color);
     }
     setFormatedData({
       labels: usedLabels,
       datasets: [
         {
-          type: "line",
-          label: "",
-          borderColor: `rgba(0, 31, 63, 0.2)`,
-          borderWidth: 2,
-          fill: false,
+          label: "# of Votes",
           data: count,
-        },
-        {
-          type: "bar",
-          label: "",
-          backgroundColor: `rgb(0, 31, 63)`,
-          data: count,
-          borderColor: `${APP_COLORS.YELLOW_COLOR.color}`,
-          borderWidth: 2,
+          backgroundColor: colors,
+          borderWidth: 1,
         },
       ],
     });
@@ -79,7 +56,7 @@ export default function EvolutionDepenses({ isMobile = false, datasets = [], cus
           <h1 className="title">{legend}</h1>
         )}
       </div>
-      {isLoading ? <Spinner /> : <Bar data={formatedData} options={options} />}
+      {isLoading ? <Spinner /> : <Pie data={formatedData} />}
     </>
   );
 }

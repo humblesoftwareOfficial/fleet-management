@@ -9,7 +9,7 @@ export default function LogoApp({ ...props }) {
   return (
     <ContainerLogo onClick={() => onHomeDashboard()}>
       <Logo>
-        <TextLogo>FLEET MANAGEMENT</TextLogo>
+        <TextLogo>AZE</TextLogo>
         {/* <AiFillCar size={24}/> */}
       </Logo>
     </ContainerLogo>

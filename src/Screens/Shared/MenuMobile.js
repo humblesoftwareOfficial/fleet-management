@@ -1,23 +1,9 @@
-import React, { useEffect, useState } from "react";
-import {
-  Button,
-  CloseMenuMobile,
-  IconItemMenu,
-  Item,
-  MenuItem,
-  MenuItemContainer,
-  MenuMobileContainer,
-  MenuMobileContent,
-} from "../../Styling/Shared";
-import {
-  BsGridFill,
-  BsTools,
-  BsPersonBoundingBox,
-  BsClipboardData,
-  BsFillGearFill,
-} from "react-icons/bs";
-import { FaCoins } from "react-icons/fa";
 import { navigate } from "@reach/router";
+import React, { useEffect, useState } from "react";
+import { AiOutlineFilter, AiOutlineMonitor } from "react-icons/ai";
+import { BsGridFill } from "react-icons/bs";
+
+import { Button, CloseMenuMobile, IconItemMenu, Item, MenuItem, MenuItemContainer, MenuMobileContainer, MenuMobileContent } from "../../Styling/Shared";
 
 export default function MenuMobile({ open, onClose }) {
   const [style, setStyle] = useState({ width: "0%" });
@@ -27,8 +13,8 @@ export default function MenuMobile({ open, onClose }) {
   }, [open]);
 
   const onNavigate = (link) => {
-    navigate(`${link}`)
-  }
+    navigate(`${link}`);
+  };
 
   return (
     <MenuMobileContainer style={style}>
@@ -51,25 +37,25 @@ export default function MenuMobile({ open, onClose }) {
               Dashoboard
             </Item>
           </MenuItem>
-          <MenuItem onClick={() => onNavigate("parc")}>
+          <MenuItem onClick={() => onNavigate("results")}>
             <Item>
               {" "}
               <IconItemMenu>
-                <BsTools size={80} />
+                <AiOutlineMonitor size={80} />
               </IconItemMenu>
-              Parc automobile
+              Résultats par zone
             </Item>
           </MenuItem>
-          <MenuItem onClick={() => onNavigate("reservation")}>
+          <MenuItem onClick={() => onNavigate("filters")}>
             <Item>
               {" "}
               <IconItemMenu>
-                <BsPersonBoundingBox size={80} />
+                <AiOutlineFilter size={80} />
               </IconItemMenu>
-              Reservations de vehicules
+              Filtres avancées
             </Item>
           </MenuItem>
-          <MenuItem>
+          {/* <MenuItem>
             <Item>
               <IconItemMenu>
                 <BsClipboardData size={80} />
@@ -92,7 +78,7 @@ export default function MenuMobile({ open, onClose }) {
               </IconItemMenu>
               Paramètres & Config.
             </Item>
-          </MenuItem>
+          </MenuItem> */}
         </MenuItemContainer>
       </MenuMobileContent>
     </MenuMobileContainer>

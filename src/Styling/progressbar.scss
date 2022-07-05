@@ -1,0 +1,14 @@
+.circle-progress-value {
+	stroke-width: 7px;
+	stroke: #590381;//hsl(39, 100%, 50%);
+	stroke-linecap: round;
+}
+.circle-progress-circle {
+	stroke-width: 15px;
+	stroke: #97EEDF; //hsl(39, 100%, 85%);
+}
+.circle-progress-text {
+	fill: #590381; //hsl(39, 100%, 50%);
+  stroke: #590381;
+  stroke-width: 1px;
+}

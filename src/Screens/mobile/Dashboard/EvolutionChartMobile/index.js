@@ -1,16 +1,40 @@
 import React from "react";
-import { ContainerCharts, ContainerChart, ContainerChartMobile } from "../../../../Styling/Chart";
-import LocationEvolution from "../../../laptop/Dashboard/EvolutionChart/LocationEvolution";
-import VehiculeType from "../../../laptop/Dashboard/EvolutionChart/VehiculeType"
 
-export default function EvolutionChartMobile() {
+import { ContainerChartMobile, ContainerCharts } from "../../../../Styling/Chart";
+import EvolutionDepenses from "../../../laptop/Dashboard/EvolutionChart/EvolutionDepenses";
+import LinearEvolution from "../../../laptop/Dashboard/EvolutionChart/LinearEvolution";
+import PieResults from "../../../laptop/Dashboard/EvolutionChart/PieResult";
+
+export default function EvolutionChartMobile({
+  data = [],
+  customTitle = "",
+  legend = "",
+}) {
   return (
     <ContainerCharts>
       <ContainerChartMobile>
-        <LocationEvolution isMobile/>
+        <PieResults
+          datasets={data}
+          customTitle={customTitle}
+          legend={legend}
+          isMobile
+        />
       </ContainerChartMobile>
       <ContainerChartMobile>
-        <VehiculeType isMobile/>
+        <LinearEvolution
+          isMobile
+          datasets={data}
+          customTitle={customTitle}
+          legend={legend}
+        />
+      </ContainerChartMobile>
+      <ContainerChartMobile>
+        <EvolutionDepenses
+          datasets={data}
+          customTitle={customTitle}
+          legend={legend}
+          isMobile
+        />
       </ContainerChartMobile>
     </ContainerCharts>
   );

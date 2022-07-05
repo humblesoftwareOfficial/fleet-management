@@ -15,7 +15,7 @@ export default function CardItemLocation({ location }) {
   const [showVehicle, setShowVehicle] = useState(false);
   const [showClient, setShowClient] = useState(false);
 
-  console.log(location?.plage)
+  // console.log(location?.plage)
 
   const fullData = {height: "100%"};
   const hideData = {display: "none"}

@@ -16,7 +16,7 @@ export const LeftDashBoard = styled("div")`
 export const RightDashBoard = styled("div")`
   width: 100%;
   height: 100%;
-  background-color: #eaeaea;
+  background-color: #FFF;
   margin-left: 260px;
 `;
 

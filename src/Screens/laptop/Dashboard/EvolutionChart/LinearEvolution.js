@@ -1,11 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import { Bar } from "react-chartjs-2";
-import { APP_COLORS } from "../../../../Styling/Colors";
+import { Line } from "react-chartjs-2";
 import Spinner from "../../../Shared/Spinner";
 
 
-export default function EvolutionDepenses({ isMobile = false, datasets = [], customTitle = "", legend = "" }) {
+export default function LinearEvolution({ isMobile = false, datasets = [], customTitle = "", legend = "" }) {
   const [formatedData, setFormatedData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -32,10 +31,11 @@ export default function EvolutionDepenses({ isMobile = false, datasets = [], cus
 
   useEffect(() => {
     formatLabels();
-  }, []);
+  }, [datasets]);
 
   useEffect(() => {
     if (formatedData) {
+
       setIsLoading(false);
     }
   }, [formatedData]);
@@ -51,20 +51,11 @@ export default function EvolutionDepenses({ isMobile = false, datasets = [], cus
       labels: usedLabels,
       datasets: [
         {
-          type: "line",
-          label: "",
-          borderColor: `rgba(0, 31, 63, 0.2)`,
-          borderWidth: 2,
+          label: "Nombre de voix",
+          data: count,
           fill: false,
-          data: count,
-        },
-        {
-          type: "bar",
-          label: "",
-          backgroundColor: `rgb(0, 31, 63)`,
-          data: count,
-          borderColor: `${APP_COLORS.YELLOW_COLOR.color}`,
-          borderWidth: 2,
+          backgroundColor: "rgb(0, 31, 63)",
+          borderColor: "rgba(0, 31, 63, 0.2)",
         },
       ],
     });
@@ -79,7 +70,20 @@ export default function EvolutionDepenses({ isMobile = false, datasets = [], cus
           <h1 className="title">{legend}</h1>
         )}
       </div>
-      {isLoading ? <Spinner /> : <Bar data={formatedData} options={options} />}
+      {isLoading ? <Spinner /> : <Line data={formatedData} options={options} />}
     </>
   );
 }
+
+// const data = {
+//   labels: ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"],
+//   datasets: [
+//     {
+//       label: "par jour",
+//       data: [12, 19, 3, 5, 2, 3, 6],
+//       fill: false,
+//       backgroundColor: "rgb(0, 31, 63)",
+//       borderColor: "rgba(0, 31, 63, 0.2)",
+//     },
+//   ],
+// };

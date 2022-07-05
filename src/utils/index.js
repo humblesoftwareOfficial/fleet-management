@@ -16,7 +16,8 @@ export const detectmob = () => {
 export const isMobileDevice = () => {
   let check = false;
   (function (a) {
-    if (// eslint-disable-next-line
+    if (
+      // eslint-disable-next-line
       /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(
         a
       ) ||
@@ -32,3 +33,47 @@ export const isMobileDevice = () => {
   }
   return check;
 };
+
+export const getPercentagePart = (value = 0) => {
+  try {
+    if (value % 1 !== 0) {
+      const result = parseFloat(value?.toString()).toFixed(2);
+      return parseFloat(result);
+    } else {
+      return value;
+    }
+  } catch (error) {
+    return 0;
+  }
+};
+
+export const isFieldWithValue = (field) =>
+  field && field?.replace(/\s/g, "")?.length;
+
+export const formatCount = (value = "") =>
+  isFieldWithValue(value?.toString())
+    ? value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+    : "";
+
+export const visibleFilters = (from = [], to = []) => {
+  try {
+    const visibles = from.filter((o) => to.includes(o.code));
+    return visibles.flatMap((o) => o.code);
+  } catch (error) {
+    console.log({ error })
+    return [];
+  }
+}
+
+export const isValidQrCode = (qrCode = "") => (
+  qrCode && qrCode.includes('ELG-') && qrCode.length === 26
+);
+
+export const saveToken = (access_token) => {
+  sessionStorage.setItem('t', JSON.stringify(access_token));
+}
+
+export const getToken = () => {
+  const tokenString = sessionStorage.getItem('t');
+  return tokenString;
+}

@@ -12,6 +12,7 @@ export const MainDashboardMobile = styled("div")`
 export const RecapContainer = styled("div")`
   display: flex;
   flex-flow: wrap;
+  justify-content: space-between;
 `;
 
 export const CardRecap = styled("div")`
@@ -73,7 +74,7 @@ export const ContentCardMobile = styled("div")`
 export const SubTitleValue = styled("div")`
   font-size: 16px;
   font-weight: 500;
-  color: #fff;
+  color: ${(props) => props.textColor || "white"};
   margin-top: 5px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -86,14 +87,19 @@ export const Value = styled("div")`
   background-color: #001f3f;
   padding: 5px;
   color: #f2f2f2;
+  font-size: 18pt;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
-
+//001f3f
 export const CircleCard = styled("span")`
   width: 40px;
   height: 40px;
   border-radius: 50%;
   position: relative;
-  background-color: #f2f2f2;
+  background-color: #fff;
   display: inline-block;
   text-align: center;
 `;

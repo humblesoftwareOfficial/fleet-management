@@ -35,7 +35,7 @@ export default function DayLoaction() {
   const locations = generateFakeLocation();
 
   const renderLocations = () =>
-    locations?.map((loc) => <CardItemLocation location={loc} />);
+    locations?.map((loc, index) => <CardItemLocation location={loc} key={index}/>);
   return (
     <ContainerDayLocation>
       <TitleDayLocation>

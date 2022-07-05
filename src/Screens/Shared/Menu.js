@@ -1,20 +1,15 @@
 import { navigate } from "@reach/router";
 import React from "react";
-import {
-  BsClipboardData,
-  BsFillGearFill,
-  BsGridFill,
-  BsPersonBoundingBox,
-  BsTools,
-} from "react-icons/bs";
-import { FaCoins } from "react-icons/fa";
+import { BsGridFill } from "react-icons/bs";
+
+import { AiOutlineMonitor, AiOutlineFilter } from "react-icons/ai";
 import {
   ContainerMenu,
   CotainerIcon,
   CotainerLabel,
   MenuItem,
 } from "../../Styling/Menu";
-import { Divider } from "../../Styling/Shared";
+// import { Divider } from "../../Styling/Shared";
 
 export default function Menu({ ...props }) {
   const onNavigate = (link) => {
@@ -31,36 +26,18 @@ export default function Menu({ ...props }) {
         </CotainerIcon>
         <CotainerLabel>Tableau de bord</CotainerLabel>
       </MenuItem>
-      <MenuItem onClick={() => onNavigate("parc")}>
+      {/* <Divider /> */}
+      <MenuItem onClick={() => onNavigate("results")}>
         <CotainerIcon>
-          <BsTools size={22} />
+          <AiOutlineMonitor size={22} />
         </CotainerIcon>
-        <CotainerLabel>Parc automobile</CotainerLabel>
+        <CotainerLabel>Résultats par zone</CotainerLabel>
       </MenuItem>
-      <MenuItem onClick={() => onNavigate("reservation")}>
+      <MenuItem onClick={() => onNavigate("filters")}>
         <CotainerIcon>
-          <BsPersonBoundingBox size={22} />
+          <AiOutlineFilter size={22} />
         </CotainerIcon>
-        <CotainerLabel>Reservations de vehicules</CotainerLabel>
-      </MenuItem>
-      <MenuItem>
-        <CotainerIcon>
-          <BsClipboardData size={22} />
-        </CotainerIcon>
-        <CotainerLabel>Clients & Partenaires</CotainerLabel>
-      </MenuItem>
-      <Divider />
-      <MenuItem>
-        <CotainerIcon>
-          <FaCoins size={22} />
-        </CotainerIcon>
-        <CotainerLabel>Finances & Comptabilités</CotainerLabel>
-      </MenuItem>
-      <MenuItem>
-        <CotainerIcon>
-          <BsFillGearFill size={22} />
-        </CotainerIcon>
-        <CotainerLabel>Paramètres & Config.</CotainerLabel>
+        <CotainerLabel>Filtres avancées</CotainerLabel>
       </MenuItem>
     </ContainerMenu>
   );
