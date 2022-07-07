@@ -38,7 +38,6 @@ const ColumnChart = ({
       count.push(datasets[i]?.count || 0);
       colors.push(datasets[i]?.political_alliance?.color);
     }
-    console.log({ colors });
     setFormatedData({
       series: [
         {

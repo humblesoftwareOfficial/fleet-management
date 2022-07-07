@@ -12,7 +12,7 @@ export default function EvolutionChart({
   customTitle = "",
   legend = "",
 }) {
-  console.log(data[0])
+
   return (
     <ContainerCharts>
       <ContainerChart>

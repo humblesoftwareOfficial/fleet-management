@@ -80,7 +80,6 @@ export default function DashBoard({ ...props }) {
             <RecapCards stats={stats}/>
             <Repartitions data={results}/>
             <EvolutionChart data={results}/>
-            {/* <DayLoaction /> */}
           </>
         )}
       </MainDashboard>
